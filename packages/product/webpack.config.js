@@ -42,4 +42,17 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "product",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./Products": "./src/ProductList.jsx",
+      },
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+      },
+    }),
+  ],
 };
