@@ -10,5 +10,5 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 1rem; /* Adjust as needed */
+  gap: 1rem;
 }
