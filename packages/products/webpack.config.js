@@ -1,7 +1,7 @@
 module.exports = {
   mode: "development",
   devServer: {
-    port: 3000,
+    port: 3001,
     historyApiFallback: true,
   },
   output: {
@@ -39,25 +39,4 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: "container",
-      filename: "remoteEntry.js",
-      exposes: {},
-      remotes: {
-        product: "product@http://localhost:3001/remoteEntry.js",
-        cart: "cart@http://localhost:3002/remoteEntry.js",
-      },
-      shared: {
-        react: {
-          singleton: true,
-          eager: true,
-        },
-        "react-dom": {
-          singleton: true,
-          eager: true,
-        },
-      },
-    }),
-  ],
 };
