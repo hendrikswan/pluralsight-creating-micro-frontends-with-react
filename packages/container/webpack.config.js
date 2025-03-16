@@ -1,3 +1,5 @@
+const { ModuleFederationPlugin } = require("webpack").container;
+
 module.exports = {
   mode: "development",
   devServer: {
