@@ -1,3 +1,5 @@
+const { ModuleFederationPlugin } = require("webpack").container;
+
 module.exports = {
   mode: "development",
   devServer: {
@@ -39,4 +41,23 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "container",
+      filename: "remoteEntry.js",
+      exposes: {},
+      remotes: {
+        products: "products@http://localhost:3001/remoteEntry.js",
+        cart: "cart@http://localhost:3002/remoteEntry.js",
+      },
+      shared: {
+        react: {
+          singleton: true,
+        },
+        "react-dom": {
+          singleton: true,
+        },
+      },
+    }),
+  ],
 };
