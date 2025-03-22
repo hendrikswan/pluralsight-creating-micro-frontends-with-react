@@ -1,11 +1,13 @@
 import React from "react";
 import "./app.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./Header";
 
 export default function App() {
   return (
     <BrowserRouter basename="/">
       <React.Suspense fallback={"Loading"}>
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products/*" element={<RemoteProducts />} />
