@@ -1,0 +1,25 @@
+.cart-container {
+  padding: 1rem;
+  max-width: 600px;
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.quantity-controls {
+  display: flex;
+  gap: 0.5rem;
+}

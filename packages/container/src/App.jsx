@@ -1,13 +1,20 @@
 import React from "react";
 import "./app.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <>
-      <HomePage />
-      <RemoteProducts />
-      <RemoteCart />
-    </>
+    <BrowserRouter>
+      <React.Suspense fallback={"Loading"}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<RemoteProducts />}>
+            <Route path="*" element={<RemoteProducts />} />
+          </Route>
+          <Route path="/cart" element={<RemoteCart />} />
+        </Routes>
+      </React.Suspense>
+    </BrowserRouter>
   );
 }
 
