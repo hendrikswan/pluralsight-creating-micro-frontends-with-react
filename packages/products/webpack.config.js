@@ -51,6 +51,7 @@ module.exports = {
       shared: {
         react: { singleton: true },
         "react-dom": { singleton: true },
+        "react-router-dom": { singleton: true },
       },
     }),
   ],
