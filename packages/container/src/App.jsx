@@ -4,13 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <React.Suspense fallback={"Loading"}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<RemoteProducts />}>
-            <Route path="*" element={<RemoteProducts />} />
-          </Route>
+          <Route path="/products/*" element={<RemoteProducts />} />
           <Route path="/cart" element={<RemoteCart />} />
         </Routes>
       </React.Suspense>
