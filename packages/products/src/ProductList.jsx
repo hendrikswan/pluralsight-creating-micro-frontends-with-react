@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./products.css";
+import { Link } from "react-router-dom";
+
+const DUMMY_PRODUCTS = [
+  { id: 1, name: "Laptop", price: 899 },
+  { id: 2, name: "Headphones", price: 199 },
+];
 
 const DUMMY_PRODUCTS = [
   { id: 1, name: "Laptop", price: 899 },

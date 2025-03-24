@@ -5,15 +5,13 @@ import Header from "./Header";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/">
-      <React.Suspense fallback={"Loading"}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products/*" element={<RemoteProducts />} />
-          <Route path="/cart" element={<RemoteCart />} />
-        </Routes>
-      </React.Suspense>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products/*" element={<RemoteProducts />} />
+        <Route path="/cart" element={<RemoteCart />} />
+      </Routes>
     </BrowserRouter>
   );
 }

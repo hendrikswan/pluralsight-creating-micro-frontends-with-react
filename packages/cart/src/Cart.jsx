@@ -27,7 +27,6 @@ export default function Cart() {
     items: ["Laptop", "Mobile"],
   });
 
-  // Group items by their id and count quantities
   const groupedItems = state.items.reduce((acc, item) => {
     acc[item] = (acc[item] || 0) + 1;
     return acc;
