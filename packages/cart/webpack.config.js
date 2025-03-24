@@ -47,6 +47,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Cart": "./src/Cart.jsx",
+        "./CartContext": "./src/CartContext.jsx",
       },
       shared: {
         react: { singleton: true },
