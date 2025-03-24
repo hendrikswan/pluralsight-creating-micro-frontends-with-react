@@ -49,6 +49,9 @@ module.exports = {
         "./Cart": "./src/Cart.jsx",
         "./CartContext": "./src/CartContext.jsx",
       },
+      remotes: {
+        products: "products@http://localhost:3001/remoteEntry.js",
+      },
       shared: {
         react: { singleton: true },
         "react-dom": { singleton: true },

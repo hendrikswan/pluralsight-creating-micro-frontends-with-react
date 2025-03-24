@@ -3,19 +3,22 @@ import "./app.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import { CartProvider } from "cart/CartContext";
+import { ProductsProvider } from "products/ProductsContext";
 
 export default function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products/*" element={<RemoteProducts />} />
-          <Route path="/cart" element={<RemoteCart />} />
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
+    <ProductsProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products/*" element={<RemoteProducts />} />
+            <Route path="/cart" element={<RemoteCart />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </ProductsProvider>
   );
 }
 

@@ -47,6 +47,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Products": "./src/Products.jsx",
+        "./ProductsContext": "./src/ProductsContext.jsx",
       },
       remotes: {
         cart: "cart@http://localhost:3002/remoteEntry.js",

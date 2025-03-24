@@ -1,6 +1,7 @@
 import React from "react";
 import "./cart.css";
 import { useCart } from "./CartContext";
+import { useProducts } from "products/ProductsContext";
 
 export default function Cart() {
   const { items, addItem, removeItem, clearCart } = useCart();
@@ -9,6 +10,8 @@ export default function Cart() {
     acc[item] = (acc[item] || 0) + 1;
     return acc;
   }, {});
+
+  const { recommendations } = useProducts();
 
   return (
     <div className="cart-container">
@@ -31,6 +34,16 @@ export default function Cart() {
           </ul>
           <button onClick={clearCart}>Clear Cart</button>
         </>
+      )}
+      {Object.keys(recommendations).length > 0 && (
+        <div className="recommendations">
+          <h3>Recommendations</h3>
+          <ul>
+            {Object.values(recommendations).map((product) => (
+              <li key={product.id}>{product.name}</li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
