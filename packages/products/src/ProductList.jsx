@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./products.css";
 import { Link } from "react-router-dom";
+import { useCart } from "cart/CartContext";
 
 const DUMMY_PRODUCTS = [
   { id: 1, name: "Laptop", price: 899 },
@@ -9,6 +10,7 @@ const DUMMY_PRODUCTS = [
 
 export default function ProductList() {
   const [products] = useState(DUMMY_PRODUCTS);
+  const { addItem } = useCart();
 
   return (
     <div>
@@ -25,7 +27,7 @@ export default function ProductList() {
               <Link to={`${p.id}`} className="button">
                 View Detail
               </Link>
-              <button className="button" onClick={() => alert("Add to cart")}>
+              <button className="button" onClick={() => addItem(p.name)}>
                 Add to cart
               </button>
             </div>
