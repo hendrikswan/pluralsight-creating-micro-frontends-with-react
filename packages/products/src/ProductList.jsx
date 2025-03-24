@@ -7,11 +7,6 @@ const DUMMY_PRODUCTS = [
   { id: 2, name: "Headphones", price: 199 },
 ];
 
-const DUMMY_PRODUCTS = [
-  { id: 1, name: "Laptop", price: 899 },
-  { id: 2, name: "Headphones", price: 199 },
-];
-
 export default function ProductList() {
   const [products] = useState(DUMMY_PRODUCTS);
 
