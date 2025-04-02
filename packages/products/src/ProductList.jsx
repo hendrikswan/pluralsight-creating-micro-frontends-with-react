@@ -3,7 +3,7 @@ import "./products.css";
 import { Link } from "react-router-dom";
 import { useCart } from "cart/CartContext";
 
-export const DUMMY_PRODUCTS = [
+const DUMMY_PRODUCTS = [
   { id: 1, name: "Laptop", price: 899 },
   { id: 2, name: "Headphones", price: 199 },
   { id: 3, name: "Smartphone", price: 699 },

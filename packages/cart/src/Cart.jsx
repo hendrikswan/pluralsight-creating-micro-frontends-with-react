@@ -10,8 +10,6 @@ export default function Cart({ recommendations }) {
     return acc;
   }, {});
 
-  console.log(recommendations);
-
   return (
     <div className="cart-container">
       <h2>My Cart</h2>
@@ -33,16 +31,6 @@ export default function Cart({ recommendations }) {
           </ul>
           <button onClick={clearCart}>Clear Cart</button>
         </>
-      )}
-      {Object.keys(recommendations).length > 0 && (
-        <div className="recommendations">
-          <h3>Recommendations</h3>
-          <ul>
-            {Object.values(recommendations).map((product) => (
-              <li key={product.id}>{product.name}</li>
-            ))}
-          </ul>
-        </div>
       )}
     </div>
   );

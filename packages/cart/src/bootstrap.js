@@ -7,14 +7,6 @@ const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 root.render(
   <CartProvider>
-    <Cart
-      recommendations={{
-        1: {
-          id: 1,
-          name: "Product 1",
-          price: 100,
-        },
-      }}
-    />
+    <Cart />
   </CartProvider>
 );
