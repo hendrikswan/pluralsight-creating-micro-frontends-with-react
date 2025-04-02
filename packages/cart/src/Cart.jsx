@@ -1,9 +1,8 @@
 import React from "react";
 import "./cart.css";
 import { useCart } from "./CartContext";
-import { useProducts } from "products/ProductsContext";
 
-export default function Cart() {
+export default function Cart({ recommendations }) {
   const { items, addItem, removeItem, clearCart } = useCart();
 
   const groupedItems = items.reduce((acc, item) => {
@@ -11,7 +10,7 @@ export default function Cart() {
     return acc;
   }, {});
 
-  const { recommendations } = useProducts();
+  console.log(recommendations);
 
   return (
     <div className="cart-container">
