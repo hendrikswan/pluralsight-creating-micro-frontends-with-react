@@ -2,15 +2,21 @@
   "name": "creating-micro-frontends-with-react",
   "private": true,
   "scripts": {
-    "dev": "pnpm -r run dev"
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "build-and-copy": "pnpm run build && node scripts/copy-builds.js ./dist",
+    "serve": "serve -s dist/container"
   },
   "devDependencies": {
     "@swc/core": "^1.11.1",
-    "swc-loader": "^0.2.6",
     "css-loader": "^7.1.2",
     "style-loader": "^4.0.0",
+    "swc-loader": "^0.2.6",
     "webpack": "^5.98.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
   }
 }
