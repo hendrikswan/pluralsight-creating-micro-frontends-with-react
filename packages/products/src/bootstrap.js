@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <BrowserRouter>
     <CartProvider>
-      <Products />
+      <Products viewedProduct={(p) => console.log(p)} />
     </CartProvider>
   </BrowserRouter>
 );

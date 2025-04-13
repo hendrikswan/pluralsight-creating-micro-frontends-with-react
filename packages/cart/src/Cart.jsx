@@ -32,6 +32,17 @@ export default function Cart({ recommendations }) {
           <button onClick={clearCart}>Clear Cart</button>
         </>
       )}
+
+      {Object.keys(recommendations).length > 0 && (
+        <div className="recommendations">
+          <h3>Recommendations</h3>
+          <ul>
+            {Object.values(recommendations).map((product) => (
+              <li key={product.id}>{product.name}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
