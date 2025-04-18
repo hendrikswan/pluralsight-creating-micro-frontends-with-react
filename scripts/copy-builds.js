@@ -34,7 +34,8 @@ console.log("Found packages:", packages);
 
 packages.forEach((pkg) => {
   const sourceDir = path.join(__dirname, "..", "packages", pkg, "dist");
-  const targetDir = path.join(destination, pkg);
+  const targetDir =
+    pkg === "container" ? destination : path.join(destination, pkg);
 
   if (fs.existsSync(sourceDir)) {
     // Create the target directory if it doesn't exist

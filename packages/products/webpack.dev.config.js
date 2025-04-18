@@ -3,15 +3,18 @@ const baseConfig = require("./webpack.base.config");
 
 module.exports = merge(baseConfig, {
   mode: "development",
+  devServer: {
+    port: 3001,
+    historyApiFallback: true,
+  },
   output: {
-    publicPath: "http://rizzphones.com:8090/",
+    publicPath: "auto",
   },
   plugins: [
     new baseConfig.plugins[0].constructor({
       ...baseConfig.plugins[0].options,
       remotes: {
-        products: "products@http://rizzphones.com:8091/products/remoteEntry.js",
-        cart: "cart@http://rizzphones.com:8091/cart/remoteEntry.js",
+        cart: "cart@http://localhost:3002/remoteEntry.js",
       },
     }),
   ],

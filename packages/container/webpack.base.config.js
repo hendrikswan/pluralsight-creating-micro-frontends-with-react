@@ -35,9 +35,7 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
+    // always keep this plugin at index 0 - the environment overrides need the index
     new ModuleFederationPlugin({
       name: "container",
       filename: "remoteEntry.js",
@@ -53,6 +51,9 @@ module.exports = {
           singleton: true,
         },
       },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
     }),
   ],
 };

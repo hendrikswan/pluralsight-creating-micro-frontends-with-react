@@ -5,10 +5,11 @@
     "dev": "pnpm -r run dev",
     "build": "pnpm -r run build",
     "build-and-copy": "pnpm run build && node scripts/copy-builds.js ./dist",
-    "serve": "serve -s dist/container"
+    "serve": "concurrently \"serve -s dist -p 8090\" \"serve -s dist -p 8091\""
   },
   "devDependencies": {
     "@swc/core": "^1.11.1",
+    "concurrently": "^8.2.2",
     "css-loader": "^7.1.2",
     "style-loader": "^4.0.0",
     "swc-loader": "^0.2.6",
