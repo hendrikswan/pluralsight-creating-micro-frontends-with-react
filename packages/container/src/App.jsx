@@ -4,6 +4,31 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import { CartProvider } from "cart/CartContext";
 
+// Step 1: Define a class-based Error Boundary
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Optionally log or track the error here
+    // e.g. logErrorToService(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // Show an alternate UI, or gracefully degrade
+      return <h2>Could not load this part of the site.</h2>;
+    }
+    return this.props.children;
+  }
+}
+
 export default function App() {
   const [recommendations, setRecommendations] = useState({});
   function viewedProduct(product) {
@@ -37,9 +62,11 @@ function HomePage() {
 function RemoteProducts({ viewedProduct }) {
   const Products = React.lazy(() => import("products/Products"));
   return (
-    <React.Suspense fallback={<div>Loading Products...</div>}>
-      <Products viewedProduct={viewedProduct} />
-    </React.Suspense>
+    <ErrorBoundary>
+      <React.Suspense fallback={<div>Loading Products...</div>}>
+        <Products viewedProduct={viewedProduct} />
+      </React.Suspense>
+    </ErrorBoundary>
   );
 }
 
