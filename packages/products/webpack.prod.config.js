@@ -2,7 +2,7 @@ const { merge } = require("webpack-merge");
 const baseConfig = require("./webpack.base.config");
 
 module.exports = merge(baseConfig, {
-  mode: "development",
+  mode: "production",
   output: {
     publicPath: "http://rizzphones.com:8091/products/",
   },
