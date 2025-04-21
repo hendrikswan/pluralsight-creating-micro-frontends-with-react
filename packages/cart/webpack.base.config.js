@@ -1,14 +1,6 @@
 const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
-  mode: "development",
-  devServer: {
-    port: 3002,
-    historyApiFallback: true,
-  },
-  output: {
-    publicPath: "auto",
-  },
   module: {
     rules: [
       {
